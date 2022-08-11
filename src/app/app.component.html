@@ -10,6 +10,7 @@
           [i]="i"
           [item]="item"
           *ngFor="let item of data; let i = index"
+          (delete)="sendDelete($event)"
         ></app-article>
       </div>
     </section>
