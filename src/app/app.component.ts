@@ -1,13 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit, OnChanges {
   showHeader = true;
   keyword = 'Test';
+
+  constructor() {
+    // Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
+  }
+
+  ngOnInit(): void {
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    for (const propName in changes) {
+      const chng = changes[propName];
+      if (chng.isFirstChange()) {
+        // before ngOnInit
+      } else {
+        // after ngOnInit
+      }
+      const cur  = JSON.stringify(chng.currentValue);
+      const prev = JSON.stringify(chng.previousValue);
+    }
+  }
 
   data: any[] = [
     {
