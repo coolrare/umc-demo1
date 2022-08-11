@@ -10,6 +10,8 @@ export class HeaderComponent implements OnInit {
   title = 'umc-demo1';
   sitelogo = '/assets/images/logo.png';
 
+  counter = 12;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -19,6 +21,7 @@ export class HeaderComponent implements OnInit {
   }
 
   changeTitle($event: PointerEvent | MouseEvent) {
+    this.counter++;
     console.log($event);
     if ($event.ctrlKey) {
       this.title = 'The Will Will Web';
