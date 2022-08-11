@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header *ngIf="showHeader"></app-header>
 
 <!-- CONTAINER START-->
 <section class="container">
@@ -176,7 +176,7 @@
           <div class="widget-content">
             <div id="searchbox">
               <input type="text" placeholder="請輸入搜尋關鍵字" accesskey="s" [value]="keyword" #mKeyword />
-              <input type="button" value="搜尋" (click)="keyword=mKeyword.value" />
+              <input type="button" value="搜尋" (click)="keyword=mKeyword.value; showHeader=!showHeader" />
               <pre>{{ keyword | json }}</pre>
             </div>
           </div>
